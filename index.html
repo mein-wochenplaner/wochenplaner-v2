@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wochenplaner (15-Minuten Raster)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    input, select, textarea, button {
+      padding: 5px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      height: 50px;
+      width: 200px;
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: 80px repeat(7, 1fr);
+      border-top: 2px solid #ccc;
+    }
+    .time, .cell {
+      border: 1px solid #ddd;
+      height: 30px;
+      font-size: 12px;
+    }
+    .time {
+      text-align: right;
+      padding-right: 5px;
+      background: #eee;
+    }
+    .header {
+      background: #ccc;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid #bbb;
+    }
+    .cell {
+      position: relative;
+      padding: 0;
+    }
+    .block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 2px);
+      cursor: move;
+      padding: 6px;
+      box-sizing: border-box;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow: hidden;
+      white-space: pre-wrap;
+      z-index: 2;
+      border: none;
+    }
+    .block .delete-btn {
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      background: transparent;
+      color: inherit;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .block::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      z-index: -1;
+    }
+    .block:hover {
+      outline: 2px dashed #333;
+    }
+    @media print {
+      .controls {
+        display: none;
+      }
+      * {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        border-color: #999 !important;
+      }
+      .cell, .time {
+        border: 1px solid #999;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Rest bleibt unverändert -->
