@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.84">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+    span.s3 {font: 12.0px 'Zapf Dingbats'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="de"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Wochenplaner (15-Minuten Raster)&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-family: sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #f4f4f4;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin: 1rem 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>gap: 0.5rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>margin-bottom: 1rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input, select, textarea, button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>textarea {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>resize: vertical;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 50px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: 200px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.calendar {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>display: grid;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>grid-template-columns: 80px repeat(7, 1fr);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border-top: 2px solid #ccc;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.time, .cell {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #ddd;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 12px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.time {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: right;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding-right: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #eee;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.header {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: #ccc;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-weight: bold;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: 1px solid #bbb;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.cell {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.block {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>left: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>width: calc(100% - 2px);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: move;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>padding: 6px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 13px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>line-height: 1.4;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>white-space: pre-wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: 2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.block .delete-btn {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>top: 2px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>right: 4px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: transparent;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: inherit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>font-size: 14px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.block::before {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>content: "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>inset: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>background: inherit;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>z-index: -1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.block:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>outline: 2px dashed #333;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>@media print {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.controls {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>display: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>* {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>print-color-adjust: exact;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>-webkit-print-color-adjust: exact;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border-color: #999 !important;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.cell, .time {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border: 1px solid #999;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Mein Wochenplaner&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="controls"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="blockText" placeholder="Text für Block mit Umbrüchen"&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input type="color" id="blockColor" value="#87CEFA" title="Blockfarbe" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;select id="blockTextColor"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;option value="white"&gt;Weiße Schrift&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;option value="black"&gt;Schwarze Schrift&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="blockDuration" min="15" step="15" value="15" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="createNewBlock()"&gt;+ Block hinzufügen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="undoDelete()"&gt;</span><span class="s2">↩️</span><span class="s1"> Rückgängig&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="savePlan()"&gt;</span><span class="s2">💾</span><span class="s1"> Speichern&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="loadPlan()"&gt;</span><span class="s2">🔄</span><span class="s1"> Laden&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="clearPlan()"&gt;🧹 Leeren&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="window.print()"&gt;</span><span class="s2">🖨️</span><span class="s1"> Als PDF speichern&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="calendar" id="calendar"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const startHour = 6;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const endHour = 22;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const interval = 15;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const calendar = document.getElementById("calendar");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let lastDeletedBlock = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let selectedCell = null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>calendar.appendChild(document.createElement("div"));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>days.forEach(day =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const div = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>div.className = "header";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>div.textContent = day;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>calendar.appendChild(div);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>for (let hour = startHour; hour &lt; endHour; hour++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>for (let m = 0; m &lt; 60; m += interval) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const hh = hour.toString().padStart(2, '0');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const mm = m.toString().padStart(2, '0');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const timeLabel = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timeLabel.className = "time";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timeLabel.textContent = `${hh}:${mm}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>calendar.appendChild(timeLabel);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let d = 0; d &lt; days.length; d++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const cell = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.className = "cell";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.ondrop = drop;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.ondragover = allowDrop;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.dataset.time = `${hh}:${mm}`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.dataset.day = days[d];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>cell.onclick = () =&gt; selectedCell = cell;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>calendar.appendChild(cell);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function allowDrop(ev) { ev.preventDefault(); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function drop(ev) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ev.preventDefault();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const data = ev.dataTransfer.getData("text");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const block = document.getElementById(data);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>ev.target.appendChild(block);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>savePlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function createBlock(text, color, textColor, id, height) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const block = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.className = "block";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.textContent = text;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.style.backgroundColor = color;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.style.color = textColor;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.style.height = `${30 * height}px`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.draggable = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.id = id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.ondragstart = drag;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.onclick = () =&gt; editBlock(block);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const btn = document.createElement("button");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.textContent = "</span><span class="s3">✕</span><span class="s1">";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.className = "delete-btn";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>btn.onclick = (e) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>e.stopPropagation();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>text: block.textContent,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>color: block.style.backgroundColor,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>textColor: block.style.color,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>height: parseInt(block.style.height) / 30,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>day: block.parentElement.dataset.day,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>time: block.parentElement.dataset.time,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>id: block.id</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>block.remove();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>savePlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>block.appendChild(btn);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>return block;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function createNewBlock() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const text = document.getElementById("blockText").value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const color = document.getElementById("blockColor").value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const textColor = document.getElementById("blockTextColor").value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const minutes = parseInt(document.getElementById("blockDuration").value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!text || isNaN(minutes) || !selectedCell) return alert("Bitte Text, Dauer (Minuten) eingeben und eine Zelle auswählen.");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const height = Math.round(minutes / interval);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const block = createBlock(text, color, textColor, "block" + Date.now(), height);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>selectedCell.appendChild(block);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>selectedCell = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>savePlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function editBlock(block) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const newText = prompt("Text bearbeiten:", block.textContent);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (newText !== null) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>block.textContent = newText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>savePlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function undoDelete() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!lastDeletedBlock) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const cell = Array.from(document.querySelectorAll(".cell"))</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.find(c =&gt; c.dataset.day === lastDeletedBlock.day &amp;&amp; c.dataset.time === lastDeletedBlock.time);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!cell) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const block = createBlock(</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock.text,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock.color,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock.textColor,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock.id,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lastDeletedBlock.height</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cell.appendChild(block);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>lastDeletedBlock = null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>savePlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function savePlan() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const blocks = document.querySelectorAll(".block");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const data = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>blocks.forEach(block =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const parent = block.parentElement;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>data.push({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>id: block.id,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>text: block.textContent,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>color: block.style.backgroundColor,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>textColor: block.style.color,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>height: parseInt(block.style.height) / 30,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>day: parent.dataset.day,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>time: parent.dataset.time</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>localStorage.setItem("wochenplan", JSON.stringify(data));</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function loadPlan() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>clearPlan();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const raw = localStorage.getItem("wochenplan");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!raw) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const data = JSON.parse(raw);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>data.forEach(item =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const block = createBlock(item.text, item.color, item.textColor, item.id, item.height);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const cell = Array.from(document.querySelectorAll(".cell"))</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>.find(c =&gt; c.dataset.day === item.day &amp;&amp; c.dataset.time === item.time);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (cell) cell.appendChild(block);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>});</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function clearPlan() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.querySelectorAll(".block").forEach(b =&gt; b.remove());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.onload = loadPlan;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
